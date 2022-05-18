@@ -27,6 +27,13 @@ class Demo4ApplicationTests {
         List<Task> tasks = taskDao.selectAllTasks();
         System.out.println(tasks);
     }
+
+    //查询所有任务
+    @Test
+    void selectEmergencyTasks() {
+        List<Task> tasks = taskDao.selectEmergencyTasks();
+        System.out.println(tasks);
+    }
     //查询所有机器人
     @Test
     void selectAllRobots() {
@@ -64,8 +71,11 @@ class Demo4ApplicationTests {
     void save() {
         List<Robot> robotList = robotDao.selectAllRobots();
         List<Robot> collect = robotList.stream().limit(3).collect(Collectors.toList());
+        List<Robot> collect1 = robotList.stream().skip(6).limit(3).collect(Collectors.toList());
         System.out.println(collect);
+        System.out.println(collect1);
     }
+
 
 
 

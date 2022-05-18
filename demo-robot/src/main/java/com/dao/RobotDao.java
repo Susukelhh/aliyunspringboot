@@ -35,7 +35,7 @@ public interface RobotDao {
     List<Robot> selectSurplusRobots();
 
     //修改机器人
-    @Update("update robot set status=#{status},task=#{task} where robotID=#{robotID})")
+    @Update("update robot set status=#{status} where robotID=#{robotID})")
     boolean update(Robot robot);
 
 
