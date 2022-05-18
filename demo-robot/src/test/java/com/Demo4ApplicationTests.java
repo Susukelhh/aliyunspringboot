@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @SpringBootTest
 class Demo4ApplicationTests {
@@ -57,6 +58,13 @@ class Demo4ApplicationTests {
         robot.setElectricityStatus(1);
         boolean save = robotDao.save(robot);
         System.out.println(save);
+    }
+
+    @Test
+    void save() {
+        List<Robot> robotList = robotDao.selectAllRobots();
+        List<Robot> collect = robotList.stream().limit(3).collect(Collectors.toList());
+        System.out.println(collect);
     }
 
 
