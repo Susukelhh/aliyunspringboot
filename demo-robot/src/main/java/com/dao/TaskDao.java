@@ -3,6 +3,7 @@ package com.dao;
 import com.domain.Task;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -30,5 +31,9 @@ public interface TaskDao {
     //查询远点任务
     @Select("select * from task where distance = 'far'")
     List<Task> selectFarTasks();
+
+    //更改任务属性
+    @Update("update task set status = #{status} where taskID = #{taskID}")
+    boolean updateTasks();
 
 }

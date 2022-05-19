@@ -48,7 +48,7 @@ public class HelloController {
         Robot robot = highRobots.get(0);
         robot.setTask(emergencyTasks);
         robot.setStatus(1);
-//        robotDao.update(robot);
+        robotDao.update(robot);
         System.out.println("-----正在优先给高电量机器人安排紧急任务----");
         System.out.println("-----有1个高电量机器人分配到了3个紧急任务----");
 
@@ -58,7 +58,8 @@ public class HelloController {
             Robot robot1 = middleRobots.get(i);
             List<Task> collect = nearTasks.stream().skip(3 * i).limit(3).collect(Collectors.toList());
             robot1.setTask(collect);
-//            robotDao.update(robot1);
+            robot1.setStatus(1);
+            robotDao.update(robot1);
         }
         System.out.println("中电量机器人分配完毕，2个机器人分配到了6个近点任务");
         System.out.println("第一阶段任务分配完毕");

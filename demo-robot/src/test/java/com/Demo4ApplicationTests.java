@@ -1,5 +1,4 @@
 package com;
-
 import com.dao.RobotDao;
 import com.dao.TaskDao;
 import com.domain.Robot;
@@ -7,7 +6,6 @@ import com.domain.Task;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,8 +16,6 @@ class Demo4ApplicationTests {
     private TaskDao taskDao;
     @Autowired
     private RobotDao robotDao;
-
-
 
     //查询所有任务
     @Test
@@ -46,18 +42,19 @@ class Demo4ApplicationTests {
         List<Robot> robotList = robotDao.selectHighRobots();
         System.out.println(robotList);
     }
+    //查询剩余机器人
     @Test
     void selectSurplusTasks() {
         List<Task> tasks = taskDao.selectSurplusTasks();
         System.out.println(tasks);
     }
-
+    //根据id查询任务
     @Test
     void selectTaskByID() {
         Task task = taskDao.selectTaskByID(3);
         System.out.println(task);
     }
-
+    //添加机器人
     @Test
     void saveRobot() {
         Robot robot =new Robot();
@@ -75,9 +72,6 @@ class Demo4ApplicationTests {
         System.out.println(collect);
         System.out.println(collect1);
     }
-
-
-
 
 
 }
